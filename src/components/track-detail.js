@@ -76,7 +76,9 @@ const TrackDetail = ({ track }) => {
             <ul>
               {modules.map((module) => (
                 <li key={module.title}>
-                  <div>{module.title}</div>
+                  <ModuleLink to={`./module/${module.id}`}>
+                    {module.title}
+                  </ModuleLink>
                   <ModuleLength>
                     {humanReadableTimeFromSeconds(module.durationInSeconds)}
                   </ModuleLength>
@@ -92,6 +94,10 @@ const TrackDetail = ({ track }) => {
 };
 
 export default TrackDetail;
+
+const ModuleLink = styled(Link)({
+  color: colors.text,
+});
 
 /** Track detail styled components */
 const CoverImage = styled.img({
